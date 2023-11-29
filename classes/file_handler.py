@@ -27,9 +27,9 @@ class FileHandler:
         ]
         self.user_stats_fieldnames = [
             "id",
-            "times shown",
-            "times answered correctly",
-            "percentage of correct answers",
+            "times_shown",
+            "times_answered_correctly",
+            "percentage_of_correct_answers",
             "weight",
         ]
 
@@ -77,9 +77,9 @@ class FileHandler:
                     "id": question["id"],
                     "status": question["status"],
                     "question": question["question"],
-                    "times shown": stats[i]["times shown"],
-                    "percentage of correct answers": stats[i][
-                        "percentage of correct answers"
+                    "times_shown": stats[i]["times_shown"],
+                    "percentage_of_correct_answers": stats[i][
+                        "percentage_of_correct_answers"
                     ],
                 }
             )
@@ -150,9 +150,9 @@ class FileHandler:
                     writer.writerow(
                         {
                             "id": question["id"],
-                            "times shown": 0,
-                            "times answered correctly": 0,
-                            "percentage of correct answers": 0,
+                            "times_shown": 0,
+                            "times_answered_correctly": 0,
+                            "percentage_of_correct_answers": 0,
                             "weight": 10,
                         }
                     )
@@ -165,9 +165,9 @@ class FileHandler:
                             writer.writerow(
                                 {
                                     "id": question["id"],
-                                    "times shown": 0,
-                                    "times answered correctly": 0,
-                                    "percentage of correct answers": 0,
+                                    "times_shown": 0,
+                                    "times_answered_correctly": 0,
+                                    "percentage_of_correct_answers": 0,
                                     "weight": 10,
                                 }
                             )
@@ -193,10 +193,10 @@ class FileHandler:
 
         for row in rows:
             if row["id"] == question_id:
-                row["times shown"] = int(row["times shown"]) + 1
+                row["times_shown"] = int(row["times_shown"]) + 1
                 if correct:
-                    row["times answered correctly"] = (
-                        int(row["times answered correctly"]) + 1
+                    row["times_answered_correctly"] = (
+                        int(row["times_answered_correctly"]) + 1
                     )
 
                 if mode == "practice":
@@ -209,8 +209,8 @@ class FileHandler:
                         if weight < 20:
                             row["weight"] = weight + 1
 
-                row["percentage of correct answers"] = (
-                    int(row["times answered correctly"]) / row["times shown"]
+                row["percentage_of_correct_answers"] = (
+                    int(row["times_answered_correctly"]) / row["times_shown"]
                 ) * 100
                 break
 

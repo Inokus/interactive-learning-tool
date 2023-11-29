@@ -15,8 +15,8 @@ class StatisticsViewing:
                 f'id: {entry["id"]}, '
                 f'status: {"active" if entry["status"] == "enabled" else "inactive"}, '
                 f'question: {entry["question"]}, '
-                f'times shown: {entry["times shown"]}, '
-                f'percentage of correct answers: {float(entry["percentage of correct answers"]):.2f}%\n'
+                f'times shown: {entry["times_shown"]}, '
+                f'percentage of correct answers: {float(entry["percentage_of_correct_answers"]):.2f}%\n'
             )
 
         input('Press "enter" to go back to mode selection\n')
