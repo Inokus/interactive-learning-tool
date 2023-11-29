@@ -1,3 +1,4 @@
+import os
 from classes.assessment import Practice, Test
 from classes.file_handler import FileHandler
 from classes.question_handler import AddingQuestions, DisableEnableQuestions
@@ -29,6 +30,9 @@ def print_menu(condition):
 
 def main():
     while True:
+        # Clear terminal after starting program and after changing profile
+        os.system("cls" if os.name == "nt" else "clear")
+
         name = get_valid_name()
 
         # Create file handler for current user and ensure that all files/folders are set up
