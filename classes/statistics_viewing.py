@@ -10,6 +10,8 @@ class StatisticsViewing:
     def view_statistics(self):
         statistics = self.file_handler.get_statistics()
         print()
+        if not statistics:
+            print("There's currently no questions added\n")
         for entry in statistics:
             print(
                 f'id: {entry["id"]}, '
