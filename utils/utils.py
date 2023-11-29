@@ -20,6 +20,13 @@ def valid_name(name):
     return True
 
 
+def get_valid_name():
+    while True:
+        name = get_user_input("Enter the name of your profile: ", "sl")
+        if valid_name(name):
+            return name
+
+
 def get_user_input(prompt, options=""):
     user_input = input(prompt)
     while not user_input:
@@ -29,3 +36,10 @@ def get_user_input(prompt, options=""):
         return user_input.strip().lower()
 
     return user_input
+
+
+def change_text_color(str):
+    gray = "\033[90m"
+    reset = "\033[0m"
+
+    return f"{gray}{str}{reset}"

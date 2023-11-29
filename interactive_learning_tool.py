@@ -2,13 +2,13 @@ from classes.assessment import Practice, Test
 from classes.file_handler import FileHandler
 from classes.question_handler import AddingQuestions, DisableEnableQuestions
 from classes.statistics_viewing import StatisticsViewing
-from utils.utils import valid_name, get_user_input
+from utils.utils import get_valid_name, change_text_color
 
 
 def print_menu(condition):
     # If condition is not met print practice and test in gray color
-    practice = ("\033[90m4 Practice\033[0m") if not condition else "4 Practice"
-    test = ("\033[90m5 Test\033[0m") if not condition else "5 Test"
+    practice = change_text_color("4 Practice") if not condition else "4 Practice"
+    test = change_text_color("5 Test") if not condition else "5 Test"
 
     print(
         "\n1 Add questions\n"
@@ -29,10 +29,7 @@ def print_menu(condition):
 
 def main():
     while True:
-        while True:
-            name = get_user_input("Enter the name of your profile: ", "sl")
-            if valid_name(name):
-                break
+        name = get_valid_name()
 
         # Create file handler for current user and ensure that all files/folders are set up
         file_handler = FileHandler(name)
